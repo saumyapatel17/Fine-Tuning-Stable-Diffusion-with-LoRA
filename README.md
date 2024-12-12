@@ -22,22 +22,8 @@ A technique used in machine learning, particularly in fine-tuning large language
 ---
 
 ### How LoRA Works
-
-1. **Key Idea**:
    - Instead of fine-tuning the entire set of model weights, LoRA introduces a low-rank decomposition into the weight update process. 
    - It adds small, trainable matrices to the layers of the model, which are used to learn task-specific adjustments while keeping the original model weights frozen.
-
-2. **Matrix Decomposition**:
-   - Consider a weight matrix \( W \) in the model. Instead of updating \( W \), LoRA adds two low-rank matrices \( A \) and \( B \) such that:
-     \[
-     W' = W + \Delta W
-     \]
-     where \( \Delta W = A \cdot B \) and \( A \) and \( B \) have much smaller dimensions than \( W \).
-
-   - By constraining \( \Delta W \) to be the product of low-rank matrices, LoRA reduces the number of trainable parameters.
-
-3. **Efficiency**:
-   - Since \( A \) and \( B \) are small matrices, the memory footprint and computation during fine-tuning are significantly reduced compared to updating the full model.
 
 ---
 
